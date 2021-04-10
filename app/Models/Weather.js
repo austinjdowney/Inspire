@@ -13,8 +13,8 @@ export default class Weather {
         return /*html*/`
         
  
-    <div class=" mt-4 d-flex justify-content-end text-light"><i class="fas fa-cloud-sun"></i></div>
-        <div class="mr-5 mt-3 text-light">
+    <div class=" mt-4 mr-1 d-flex justify-content-end text-light"><i class="fas fa-sun"></i></div>
+        <div class="mr-5 mt-3 text-light" onclick="app.weathersController.changeTemp('${this.c}')">
             <h6>${this.f}&deg</h6>
             <p>${this.city}</p>
         </div>

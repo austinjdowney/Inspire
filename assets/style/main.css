@@ -10684,6 +10684,28 @@ h3 {
     left: 100%;
   }
 }
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.author {
+  color: transparent;
+  transition: all 1s;
+  animation: fadeIn ease 2s;
+}
+
+.quote:hover .author {
+  color: unset;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   display: flex;
   flex-direction: column;

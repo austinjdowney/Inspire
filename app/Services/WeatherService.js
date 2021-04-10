@@ -8,6 +8,9 @@ class WeatherService {
         ProxyState.weathers = new Weather(res.data)
         console.log(res)
     }
+    async changeTemp(type) {
+
+    }
 
 }
 

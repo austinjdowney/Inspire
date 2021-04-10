@@ -4,18 +4,20 @@ import { todoService } from "../Services/TodoService.js";
 
 //Private
 function _draw() {
+    let compeletedTodos = ProxyState.todos.filter(t => t.completed == true).length
+    let lengthTodos = ProxyState.todos.length
     let template = ''
-    ProxyState.todos.forEach(t =>
-        template += `<li class="d-flex justify-content-start"><input class="form-check-input position-static m-2" checked type="checkbox" id="checkedboxes" value="option1"
-                        aria-label="...">${this.title} <i class="fas fa-times ml-2 text-danger"
-                        onclick="app.todosController.deleteTodo('${this.id}')"></i></li>`)
-    document.getElementById("todos").innerHTML = template
-}
+    template += `<p>${compeletedTodos}/${lengthTodos}</p>`
 
+    ProxyState.todos.forEach(t => template += t.Template)
+    document.getElementById("todos").innerHTML = template
+    //document.getElementById("lengthTodos").innerText = lengthTodos.toString()
+}
 //Public
 export default class TodosController {
     constructor() {
         ProxyState.on("todos", _draw);
+
         this.getTodos()
     }
 
@@ -26,17 +28,28 @@ export default class TodosController {
             console.error
         }
     }
-    async deleteTodo() {
+
+    async deleteTodo(id) {
         try {
-            await todoService.deleteTodo()
+            await todoService.deleteTodo(id)
         } catch (error) {
             console.error
         }
     }
 
-    async addTodo() {
+    addTodo() {
+        window.event.preventDefault();
+        let form = window.event.target
+        let rawTodo = {
+            description: form.description.value
+        }
+
+        todoService.addTodo(rawTodo)
+        form.reset()
+    }
+    async completedTodo(id) {
         try {
-            await todoService.addTodo()
+            await todoService.completedTodo(id)
         } catch (error) {
             console.error
         }

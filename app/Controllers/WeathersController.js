@@ -4,7 +4,6 @@ import { weatherService } from "../Services/WeatherService.js";
 
 //Private
 function _draw() {
-    debugger
     let template = ''
     template = ProxyState.weathers.Template
     document.getElementById("weathers").innerHTML = template

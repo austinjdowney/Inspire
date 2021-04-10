@@ -1,29 +1,54 @@
 export default class Todo {
-    constructor(title, id, completed) {
-        this.title = title
-        this.id = id
-        this.completed = completed
+    constructor(data) {
+        this.description = data.description
+        this.id = data.id
+        this.completed = data.completed
 
     }
 
     get Template() {
 
-        let tasks = ProxyState.tasks.filter(t => t.listId === this.id)
-        let total = tasks.length
-        let completed = tasks.filter(t => t.completed).length
+        //let todos = ProxyState.todos.filter(t => t.Id === this.id)
+        //let total = todos.length
+        //let completed = todos.filter(t => t.completed).length
 
-        return /*html*/`
-        <li class="d-flex justify-content-start"><input class="form-check-input position-static m-2" checked type="checkbox" id="checkedboxes" value="option1"
-                        aria-label="...">${this.title} <i class="fas fa-times ml-2 text-danger"
-                        onclick="app.tasksController.deleteTask('${this.id}')"></i></li>
-        
-        
-        `
+
+        if (this.completed) {
+            return /*html*/ `
+  <div class="row  mb-2 bg-dark text-light">
+    <div class="col-2">
+      <button onclick="app.todosController.completedTodo('${this.id}')" class="btn btn-success"><i class="fas fa-check-square"></i></button>
+    </div>
+    <div class="col-8">
+      <h6 class="strikeThrough text-center ">${this.description}</h6>
+    </div>
+    <div class="col-2">
+      <button onclick="app.todosController.deleteTodo('${this.id}')" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>
+    </div>
+</div>
+    `
+        } else {
+            return /*html*/ `
+  <div class="row mb-2 bg-dark text-light">
+    <div class="col-2">
+      <button onclick="app.todosController.completedTodo('${this.id}')" class="btn btn-success"><i class="fas fa-check-square"></i></button>
+    </div>
+    <div class="col-8">
+      <h6 class="text-center">${this.description}</h6>
+    </div>
+    <div class="col-2">
+      <button onclick="app.todosController.deleteTodo('${this.id}')" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>
+    </div>
+</div>
+    `
+        }
     }
-    get Todos() {
-        let Tsks = ProxyState.tasks.filter(t => t.todoId === this.id)
-        let template = ''
-        Tsks.forEach(t => template += t.Template)
-        return template
-    }
+
+
+
+    //get Todos() {
+    //    let todo = ProxyState.todos.filter(t => t.todoId === this.id)
+    //    let template = ''
+    //    todo.forEach(t => template += t.Template)
+    //    return template
 }
