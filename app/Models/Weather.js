@@ -2,7 +2,7 @@ export default class Weather {
     constructor(data) {
         this.city = data.name
         this.kelvin = data.main.temp
-        this.f = Math.round((this.kelvin - 273.15) * (9 / 5) + 3)
+        this.f = Math.round((this.kelvin - 273.15) * (9 / 5) + 32)
         this.c = Math.round((this.f - 32) * 0.5556)
     }
 

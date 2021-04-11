@@ -10706,6 +10706,20 @@ h3 {
     opacity: 1;
   }
 }
+.clock {
+  font-size: 4.5rem;
+  background-color: transparent;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.clock-text {
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
 body {
   display: flex;
   flex-direction: column;

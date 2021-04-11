@@ -26,36 +26,37 @@
     </header>
     <main>
         <div class="row">
-
-            <!-- -----BLANK COL TO SPACE TIME AND  -->
             <div class="col-3"></div>
-
             <!-- ----CLOCK WITH TEXT AT BOTTOM -->
-            <div class="col-6">
+            <div class="mx-4">
+
+                <div class="col text-center clock mt-5" id="clocks">
+                </div>
+                <p class="clock-text text-center ml-4">What else can you accomplish today?</p>
             </div>
 
 
             <!-- ------ TODO LIST----- -->
-            <div class="col-3 my-3">
-
-
-                <div class="form-header bg-white rounded text-center">
-                    <h5>Todo List
-                        <div id="todos"></div>
-                        <div>
-                            <ul id="description">
-                            </ul>
-                        </div>
-                    </h5>
-                </div>
-                <form type="submit" onsubmit="app.todosController.addTodo(event)">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="description" id="description"
-                            aria-describedby="emailHelp" placeholder="New Todo...">
-                        <button onclick="submit" class="btn btn-primary btn-block">Submit</button>
+            <div class="col-3 my-3 d-flex align-content-end">
+                <div class="mt-5">
+                    <div class="form-header bg-white rounded text-center">
+                        <h5>Todo List
+                            <div id="todos"></div>
+                            <div>
+                                <ul id="description">
+                                </ul>
+                            </div>
+                        </h5>
                     </div>
-                </form>
-                <div id="todo"></div>
+                    <form type="submit" onsubmit="app.todosController.addTodo(event)">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="description" id="description"
+                                aria-describedby="emailHelp" placeholder="New Todo...">
+                            <button onclick="submit" class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                    <div id="todo"></div>
+                </div>
             </div>
 
         </div>
