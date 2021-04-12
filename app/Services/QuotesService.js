@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import { sandboxApi } from "../Services/AxiosService.js"
-import Quote from "../models/Quote.js"
+import Quote from "../Models/Quote.js"
 
 class QuotesService {
 

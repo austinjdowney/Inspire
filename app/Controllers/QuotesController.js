@@ -1,5 +1,5 @@
 import { ProxyState } from "../AppState.js"
-import Quote from "../models/Quote.js"
+//import Quote from "../Models/Quote.js"
 import { quotesService } from "../Services/QuotesService.js"
 
 function _draw() {
